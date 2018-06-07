@@ -6,7 +6,12 @@ class MemosController < ApplicationController
 
   def create
     Memo.create(memo_params)
-    redirect_to :root
+    @memos = Memo.all
+  end
+
+  def destroy
+    Memo.find(params[:id]).destroy
+    @memos = Memo.all
   end
 
   private
